@@ -5,12 +5,12 @@
 //3. bool
 //4. null
 //5. bigint
-//6. null
+//6. null -- standalone value
 //7. undefined
-//8. symbol
+//8. symbol -- unique
 
-let name = "Anshika Singh"
+// let name = "Anshika Singh"
 
-console.log(typeof null) // type null ka object hota hai
-console.log(typeof undefined) //type undefine ka undefine hota h
-console.log(typeof name)
+// console.log(typeof null)       // type null ka object hota hai
+// console.log(typeof undefined) //type undefine ka undefine hota h
+// console.log(typeof name)      
