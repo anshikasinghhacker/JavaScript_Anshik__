@@ -1,0 +1,35 @@
+
+//scope
+{
+
+}
+
+
+// global scope
+
+{    //block scope
+    const a = 100
+    let b = 200
+    var c = 300
+    d = 400
+}
+
+//the variables only accessible within the scope{}
+//but there is a limitation with variable var it is accessible outside the scope lets see the example
+//console.log(a); //output -- a is not defined it mean a is not accessible outside the scope
+//console.log(b); //output-- b is not defined it mean b is not accessible outside the scope
+
+//console.log(c); //output -- 300 its means var c is accessible outside the scope that's why we not use var this the the main limitation of var
+//console.log(d);//output -- 400
+
+
+let x = 500  //global scope
+
+if(true){
+    let x = 300     //block scope
+    let y = 400
+    console.log(x); // output 300
+}
+
+console.log(x); //output 500
+
