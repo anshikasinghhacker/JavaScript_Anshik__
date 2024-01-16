@@ -82,3 +82,15 @@ else if(balance<500){
 }else{
     console.log("fine");
 }
+
+const userLoggedIn = "true"
+const debitCard = "true"
+if(userLoggedIn && debitCard && 2==3){
+    console.log("Allow to buy course");
+}
+
+let loggedInfromGoogle = true
+let loggedInfromGmail = false
+if(loggedInfromGoogle || loggedInfromGmail){
+    console.log("Sucessfull");
+}
