@@ -1,14 +1,14 @@
 //syntax:
-// let arr = [1,2,3]
-// // let result = arr.reduce((acc,currval)=>{
-// //     console.log(`accumulator : ${acc} & currValue : ${currval}`);
-// //     return acc + currval
-// // },0)
-// // console.log(result);
+let arr = [1,2,3]
+let result = arr.reduce((acc,currval)=>{
+    console.log(`accumulator : ${acc} & currValue : ${currval}`);
+    return acc + currval
+},0)
+console.log(result);
 
 // //arrow fun
-// let result1 = arr.reduce((acc,currval) => acc+currval,0)
-// console.log(result1);
+let result1 = arr.reduce((acc,currval) => acc+currval,0)
+console.log(result1);
 
 let arr1 = [
     {itemName : "javascript", price : 999},
