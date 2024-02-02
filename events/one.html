@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML EVENTS</title>
+</head>
+<body style="background-color: #414141; color: aliceblue;">
+    <h2>Amazing Image</h2>
+    <div>
+      <ul id="images">
+        <li><img width="200px" id="pinterest" src="https://i.pinimg.com/564x/de/38/2b/de382b37c8bdeafe0b317434f446b7c2.jpg" alt="pinterest"></li>
+        <li><img width="200px" id="two" src="https://i.pinimg.com/564x/c0/b3/90/c0b390d646ad09ed7912c190c2bd253f.jpg" alt=""></li>
+        <li><img width="200px" id="three" src="https://i.pinimg.com/564x/23/6b/ed/236bedf644d2a8cc8df0cb7fad20452e.jpg" alt=""></li>
+        <li><img width="200px" id="three" src="https://i.pinimg.com/564x/0b/9e/98/0b9e9817aee01a5f9e3d2d3fd70eeba5.jpg" alt=""></li>
+        <li><img width="200px" id="four" src="https://i.pinimg.com/736x/4a/65/2e/4a652eb2d63d18c39ff3c4dea968c0bd.jpg" alt="" ></li>
+        <!-- <li><img width="200px" id="four" src="https://i.pinimg.com/736x/4a/65/2e/4a652eb2d63d18c39ff3c4dea968c0bd.jpg" alt="" onclick="alert('four')"></li>-->
+        <!-- note above we apply onclick which is not feasible approach when the application scale dont inject like this within html -->
+        <li><a style="color: aliceblue;" href="https://google.com" id="google">Google</a></li>
+      </ul>
+    </div>
+</body>
+<script>
+// previously these were use
+//1.attachEvent
+// 2.jQuery-on
+// Another approach -- this approach give us less feature
+// document.getElementById('two').onclick=function(){
+//     alert("two clicked")
+// This approach is also not good bcoz there may be problem when we applied onclick on id
+// }
+// instead of using this use event listene 
+// Event Listener gives us so many functionality & propogation ability
+
+// current appraoch or best approachof market
+// document.getElementById('two').addEventListener('click',function(){
+//     alert("two clicked again")
+// })
+
+//  document.getElementById('two').addEventListener('click',function(e) {  //here this e is event object
+//     console.log(e); 
+// },false) //here false is default
+
+// note : when we go to console the above piece of code we get a pointerEvent which we click on it we get alot of object --- like bubbles, screenX, screenY timestamp, etc
+// Important objects to read :-- type, timestamp, defaultPrevented, target, toElement, srcElement, currentTarget,
+// clietX clientY, screenX, screenY, altkey, ctrlkey, shiftkey, keyCode
+
+// --- EVENT PROPOGATION--------
+// THERE ARE TWO CONTEXT OF EVENT PROPOGATION 
+// 1. EVENT CAPTURING
+// 2. EVENT BUBBLING -- MOSTLY USE IN MARKET (False)
+
+// 1. EVENT BUBBLING
+// document.getElementById('images').addEventListener('click',function(e){
+//     console.log("clicked inside the ul");
+// },false)
+
+// document.getElementById('two').addEventListener('click',function(e){
+//     console.log("two clicked");
+//     e.stopPropagation()  //e.stopPropagation --now jaise hi hum two img p click krnge waise hi event bubble ho k uppr k element p ni jyga now on console we get "two clicked"
+// }, false)
+
+
+
+// the above example is example of event propogating "bubbling"-- > in bubbling bottom to up approach used here in the above piece of code when we click on any img then "clicked inside ul"
+// showing on console but when we click on id two img then we get "two clicked" then "clicked inside the ul" on console. its means when we clickn on inner image then li then ui
+// Bubbling --> it is a type of event propogating where opertation happenning from inside to outside
+
+// 2. EVENT CAPTURING --> top to bottom (ul then li)
+// document.getElementById('images').addEventListener('click',function(e){
+//     console.log("clicked inside the ul");
+// },true)
+
+// document.getElementById('two').addEventListener('click',function(e){
+//     console.log("two clicked");
+// }, true)
+
+// document.getElementById('google').addEventListener('click',function(e){
+//     e.preventDefault();
+//     e.stopPropagation()
+//     console.log("google clicked");
+// },false)
+
+// ------------ACTIVITY-----------------
+//  ----TASK --> WHEN WE CLICK ON li image then they get disappear---------
+document.querySelector('#images').addEventListener('click',function(e){
+    console.log(e.target.tagName);
+    if(e.target.tagName==='IMG'){
+        console.log(e.target.tagName);
+        let removeIt = e.target.parentNode
+    removeIt.remove()
+    }
+    
+})
+</script>
+</html>
