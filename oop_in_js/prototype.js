@@ -25,4 +25,39 @@ Array.prototype.heyAnshika = function(){
 // myHeros.anshika()
 
 // heroPower.heyAnshika()
- myHeros.heyAnshika()
+//  myHeros.heyAnshika()
+
+//  ---inheritance---
+
+const User = {
+    name: "chai",
+    email : "chai@google.com"
+}
+const Teacher = {
+    makeVideo : true
+}
+
+const TeachingSupport = {
+    isAvailable : false
+}
+
+const TASupport = {
+    makeAssignment : 'JS assihnment',
+    fullTime : true,
+    __proto__:TeachingSupport
+}
+
+Teacher.__proto__ = User
+
+// modern syntax
+Object.setPrototypeOf(TeachingSupport,Teacher)
+
+let anotherUserName = "ChaiAurCode    "
+String.prototype.truelength = function(){
+    console.log(`${this}`);
+    console.log(`True length is: ${this.trim().length}`);
+}
+anotherUserName.truelength()
+
+"anshika".truelength()
+"iceTea".truelength()
